@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import NavBar from './NavBar.vue'
-import AppFooter from './Footer.vue'
-import CardComponent from './Card.vue'
+import NavBar from '@/components/NavBar.vue'
+import AppFooter from '@/components/Footer.vue'
+import CardComponent from '@/components/Card.vue'
 
 export default {
   name: 'HomePage',
@@ -36,19 +36,19 @@ export default {
           id: 1,
           title: 'Archivo 1',
           description: 'Descripción del archivo 1',
-          image: '~file1.png'
+          image: './assets/file1.png'
         },
         {
           id: 2,
           title: 'Archivo 2',
           description: 'Descripción del archivo 2',
-          image: '~file2.png'
+          image: './assets/file2.png'
         },
         {
           id: 3,
           title: 'Archivo 3',
           description: 'Descripción del archivo 3',
-          image: '~file3.png'
+          image: './assets/file3.png'
         }
       ]
     }
