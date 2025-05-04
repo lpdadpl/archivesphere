@@ -34,21 +34,27 @@ export default {
       files: [
         {
           id: 1,
-          title: 'Archivo 1',
-          description: 'Descripción del archivo 1',
-          image: './assets/file1.png'
+          title: 'Cien años de soledad',
+          type: 'book',
+          image: 'https://m.media-amazon.com/images/I/91TvVQS7loL.jpg',
+          description: 'Una novela de Gabriel García Márquez.',
+          likes: 10
         },
         {
           id: 2,
-          title: 'Archivo 2',
-          description: 'Descripción del archivo 2',
-          image: './assets/file2.png'
+          title: '1984',
+          type: 'book',
+          image: 'https://cdn.prod.website-files.com/6034d7d1f3e0f52c50b2adee/67fcc5877c2ce126c48a577d_kAxP6D4zENBke6sSNA999xECBKUBoZET9M_WkMJrkVQ.jpeg',
+          description: 'Una novela de George Orwell.',
+          likes: 12
         },
         {
           id: 3,
-          title: 'Archivo 3',
-          description: 'Descripción del archivo 3',
-          image: './assets/file3.png'
+          title: 'El señor de los anillos',
+          type: 'book',
+          image: 'https://www.planetadelibros.com/usuaris/libros/fotos/210/original/portada_el-senor-de-los-anillos_j-r-r-tolkien_201601252224.jpg',
+          description: 'Una novela de J.R.R. Tolkien.',
+          likes: 18
         }
       ]
     }

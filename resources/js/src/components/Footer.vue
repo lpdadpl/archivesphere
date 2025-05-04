@@ -1,23 +1,17 @@
 <template>
   <footer class="footer">
     <div class="footer-content">
-      <div class="footer-section">
-        <h3>ArchiveSphere</h3>
-        <p>Tu biblioteca digital personal</p>
+      <div class="footer-links">
+        <router-link to="/contacto" class="footer-link">Contacto</router-link>
+        <router-link to="/politica-privacidad" class="footer-link">Política de Privacidad</router-link>
+        <router-link to="/terminos-servicio" class="footer-link">Términos de Servicio</router-link>
       </div>
-      <div class="footer-section">
-        <h3>Enlaces</h3>
-        <router-link to="/" class="footer-link">Inicio</router-link>
-        <router-link to="/library" class="footer-link">Biblioteca</router-link>
-        <router-link to="/documentos" class="footer-link">Documentos</router-link>
-      </div>
-      <div class="footer-section">
-        <h3>Contacto</h3>
-        <p>Email: info@archivesphere.com</p>
+      <div class="footer-logo">
+        <img src="@/assets/LogoArchiveSphere.png" alt="Logo" />
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 ArchiveSphere. Todos los derechos reservados.</p>
+      <p>&copy; 2023 ArchiveSphere. Todos los derechos reservados.</p>
     </div>
   </footer>
 </template>
@@ -30,55 +24,46 @@ export default {
 
 <style scoped>
 .footer {
-  background-color: #5c7a99;
-  color: white;
-  padding: 2rem 0;
-  margin-top: auto;
+  background-color: #5c7a99; /* Color azul grisáceo */
+  color: #ffffff; /* Texto blanco para mejor contraste */
+  padding: 2rem 0 0 0;
+  text-align: center;
+  width: 100vw;
+  position: relative;
+  left: 0;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
-.footer-section {
-  flex: 1;
-  margin: 0 1rem;
-}
-
-.footer-section h3 {
-  margin-bottom: 1rem;
+.footer-links {
+  display: flex;
+  gap: 2rem;
 }
 
 .footer-link {
-  display: block;
-  color: white;
   text-decoration: none;
-  margin-bottom: 0.5rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #e0e0e0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-logo img {
+  height: 40px;
 }
 
 .footer-bottom {
-  text-align: center;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-section {
-    margin: 1rem 0;
-  }
+  margin-top: 1rem;
 }
 </style>
