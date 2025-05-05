@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -35,6 +34,18 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+
+        Schema::create('usuarios', function (Blueprint $table) {
+            $table->id('IdUsuario'); // Llave primaria personalizada
+            $table->string('CodigoUsuario', 50)->unique(); // Código único del usuario
+            $table->string('Email', 150)->unique(); // Email único
+            $table->date('FechaAlta'); // Fecha de alta del usuario
+            $table->unsignedBigInteger('IdRol'); // Llave foránea para la tabla roles
+            $table->boolean('Estado')->default(true); // Estado del usuario (activo/inactivo)
+
+            // Relación con la tabla roles
+            $table->foreign('IdRol')->references('IdRol')->on('roles')->onDelete('cascade');
+        });
     }
 
     /**
@@ -45,5 +56,6 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('usuarios');
     }
 };

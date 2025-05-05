@@ -9,3 +9,50 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%; /* Ocupa el 15% de la altura de la página */
+    background-color: #007BFF; /* Azul */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar .navbar-logo img {
+    height: 80%; /* Ajusta el tamaño del logo */
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-menu .nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar-menu .nav-item:hover {
+    color: #FFD700; /* Cambia a dorado al pasar el cursor */
+}
+
+.navbar-end .profile-icon {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.navbar-spacer {
+    height: 15%; /* Espaciador para evitar que el contenido se superponga con el navbar */
+}
