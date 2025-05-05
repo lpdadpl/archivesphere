@@ -5,6 +5,7 @@
         <router-link to="/contacto" class="footer-link">Contacto</router-link>
         <router-link to="/politica-privacidad" class="footer-link">Política de Privacidad</router-link>
         <router-link to="/terminos-servicio" class="footer-link">Términos de Servicio</router-link>
+        <router-link to="/blog" class="footer-link">Blog</router-link>
       </div>
       <div class="footer-logo">
         <img src="@/assets/LogoArchiveSphere.png" alt="Logo" />
