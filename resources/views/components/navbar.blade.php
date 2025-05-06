@@ -1,5 +1,8 @@
 <style>
     .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 15vh;
         background-color: #0056b3;
@@ -9,6 +12,7 @@
         justify-content: space-between;
         padding: 0 2rem;
         box-sizing: border-box;
+        z-index: 1000;
     }
 
     .navbar-brand,

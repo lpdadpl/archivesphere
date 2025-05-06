@@ -7,12 +7,7 @@
     <div class="home-content">
         <div class="card-container">
             @foreach ($files as $file)
-                @include('components.card', [
-                    'title' => $file['title'],
-                    'description' => $file['description'],
-                    'image' => $file['image'],
-                    'url' => route('file.show', ['id' => $file['id']])
-                ])
+                @include('components.card')
             @endforeach
             </div>
         </div>

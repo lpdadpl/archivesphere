@@ -1,4 +1,4 @@
-<!-- filepath: /resources/views/file.blade.php -->
+
 @extends('layouts.app')
 
 @section('content')
