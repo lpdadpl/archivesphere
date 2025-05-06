@@ -4,27 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // Ruta para la página de inicio
 Route::get('/', function () {
-    $files = [
-        [
-            'id' => 1,
-            'title' => 'Archivo 1',
-            'description' => 'Descripción del archivo 1',
-            'image' => 'ruta_a_imagen_1.jpg',
-        ],
-        [
-            'id' => 2,
-            'title' => 'Archivo 2',
-            'description' => 'Descripción del archivo 2',
-            'image' => 'ruta_a_imagen_2.jpg',
-        ],
-        [
-            'id' => 3,
-            'title' => 'Archivo 3',
-            'description' => 'Descripción del archivo 3',
-            'image' => 'ruta_a_imagen_3.jpg',
-        ],
-    ];
-    return view('layouts/home', compact('files'));
+    return view('layouts/home');
 })->name('home');
 
 // Ruta para la página de login

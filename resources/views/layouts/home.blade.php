@@ -6,9 +6,9 @@
 
     <div class="home-content">
         <div class="card-container">
-            @foreach ($files as $file)
+{{--             @foreach ($files as $file)
                 @include('components.card')
-            @endforeach
+            @endforeach --}}
             </div>
         </div>
 
