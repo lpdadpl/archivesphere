@@ -1,11 +1,11 @@
+{{-- filepath: /usr/proyectos/ArchiveSphereLaravel/archivesphere/resources/views/components/footer.blade.php --}}
 <style>
     .footer {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: #0056b3;
-        /* Azul fuerte */
+        background-color: #0056b3; /* Azul fuerte */
         color: white;
         padding: 1.5rem 2rem;
         box-sizing: border-box;
@@ -40,20 +40,22 @@
     }
 
     .footer-link:hover {
-        color: #ffd700;
-        /* Amarillo en hover */
+        color: #ffd700; /* Amarillo en hover */
     }
 
     .footer-logo img {
-        height: 60px;
-        /* Ajusta según el tamaño del logo */
+        height: 60px; /* Ajusta según el tamaño del logo */
     }
 
     .footer-bottom {
         text-align: center;
         font-size: 0.9rem;
-        color: #d1d5db;
-        /* Gris claro */
+        color: #d1d5db; /* Gris claro */
+    }
+
+    /* Ajustar el contenido para que no quede oculto debajo del footer */
+    .content-container {
+        padding-bottom: 120px; /* Altura del footer */
     }
 </style>
 

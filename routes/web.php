@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginProcessController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FileController;
 
 // Ruta para la página de inicio
-Route::get('/', function () {
-    return view('layouts/home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Ruta para la página de login
 Route::get('/login', function () {
@@ -36,9 +36,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Ruta para mostrar un archivo específico
-Route::get('/file/{id}', function ($id) {
-    return view('file', compact('file'));
-})->name('file.show');
+Route::get('/file/{id}', [FileController::class, 'show'])->name('file.show');
 
 // Ruta para la página de contacto
 Route::get('/contact', function () {
