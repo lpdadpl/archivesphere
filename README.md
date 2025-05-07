@@ -77,5 +77,5 @@ puertos se están sirviendo los contenedores podeis verlo en el docker desktop e
 -   Para esto tenemos que entrar dentro de contenedor workspace, para hacer esto podemos hacerlo con comandos o como se menciona más abajo en la Nota con el docker desktop.
     Desde ubuntu con comandos lanzamos el comando (docker ps) que nos mostrará un listado de los contenedores que tenemos corriendo ahora mismo y así identificar
     sus nombres y sus ids, después lanzamos el comando (docker exec -it nombre_contenedor /bin/bash) debería ser algo así (docker exec -it archivesphere-laradock-workspace-1 /bin/bash)
-    una vez dentro del contenedor lanzamos el comando (composer install), HECHO HASTA AQUI una vez terminada la intalación lanzamos (php artisan migrate:fresh --seed)
+    una vez dentro del contenedor lanzamos el comando (composer install), una vez terminada la intalación lanzamos (php artisan migrate:fresh --seed)
     en esta parte creamos las tablas y repoblamos la base de datos, es importante haber tenido bien configurados los .env en la parte de la base de datos para que no falle.
