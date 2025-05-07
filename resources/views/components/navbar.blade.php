@@ -67,11 +67,10 @@
     </div>
 
     <div class="navbar-menu">
-        <a href="/" class="nav-item">Inicio</a>
-        <a href="/documentos" class="nav-item">Documentos</a>
-        <a href="/libros" class="nav-item">Libros</a>
+        <a href="/documents" class="nav-item">Documentos</a>
+        <a href="/books" class="nav-item">Libros</a>
         <a href="/videos" class="nav-item">Videos</a>
-        <a href="/library" class="nav-item">Biblioteca</a>
+        <a href="/library" class="nav-item">Guardados</a>
     </div>
 
     <div class="navbar-end">

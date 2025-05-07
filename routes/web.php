@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginProcessController;
 
 // Ruta para la página de inicio
 Route::get('/', function () {
@@ -12,45 +13,30 @@ Route::get('/login', function () {
     return view('layouts.login');
 })->name('login');
 
-// Ruta para la biblioteca
-Route::get('/library', function () {
-    $groupedFiles = [
-        'Documentos' => [
-            [
-                'id' => 1,
-                'title' => 'Documento 1',
-                'description' => 'Descripción del documento 1',
-                'image' => 'ruta_a_imagen_1.jpg',
-            ],
-            [
-                'id' => 2,
-                'title' => 'Documento 2',
-                'description' => 'Descripción del documento 2',
-                'image' => 'ruta_a_imagen_2.jpg',
-            ],
-        ],
-        'Libros' => [
-            [
-                'id' => 3,
-                'title' => 'Libro 1',
-                'description' => 'Descripción del libro 1',
-                'image' => 'ruta_a_imagen_3.jpg',
-            ],
-        ],
-    ];
-    return view('library', compact('groupedFiles'));
-})->name('library');
+// Ruta para manejar el proceso de login
+Route::post('/login-process', [LoginProcessController::class, 'handleLogin'])->name('login.process');
+
+// Rutas protegidas por el middleware 'auth'
+Route::middleware(['auth'])->group(function () {
+    Route::get('/documents', function () {
+        return view('layouts/documents');
+    })->name('documents');
+
+    Route::get('/books', function () {
+        return view('layouts/books');
+    })->name('books');
+
+    Route::get('/videos', function () {
+        return view('layouts/videos');
+    })->name('videos');
+
+    Route::get('/library', function () {
+        return view('layouts/library');
+    })->name('library');
+});
 
 // Ruta para mostrar un archivo específico
 Route::get('/file/{id}', function ($id) {
-    $file = [
-        'id' => $id,
-        'title' => 'Archivo ' . $id,
-        'description' => 'Descripción del archivo ' . $id,
-        'uploader' => 'Usuario ' . $id,
-        'likes' => rand(0, 100),
-        'downloads' => rand(0, 1000),
-    ];
     return view('file', compact('file'));
 })->name('file.show');
 
@@ -61,6 +47,23 @@ Route::get('/contact', function () {
 
 // Ruta para manejar el envío del formulario de contacto
 Route::post('/contact', function () {
-    // Aquí puedes manejar el envío del formulario, como enviar un correo o guardar en la base de datos.
     return redirect()->route('contact')->with('success', 'Mensaje enviado correctamente.');
 })->name('contact.submit');
+
+// Ruta para el panel de administración
+Route::get('/admin/dashboard', function () {
+    return view('layouts.AdminDashboard');
+})->name('admin.dashboard');
+
+// Rutas del footer
+Route::get('/privacy-policy', function () {
+    return view('layouts.PrivacyPolicy');
+})->name('privacy.policy');
+
+Route::get('/terminos-servicio', function () {
+    return view('layouts.terms_of_service');
+})->name('terms.service');
+
+Route::get('/blog', function () {
+    return view('layouts.blog');
+})->name('blog');

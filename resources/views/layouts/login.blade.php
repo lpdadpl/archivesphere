@@ -104,7 +104,7 @@
     <div class="login-container">
         <div class="login-box">
             <h1 class="login-title">Iniciar Sesión</h1>
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login.process') }}">
                 @csrf
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>

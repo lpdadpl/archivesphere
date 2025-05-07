@@ -61,7 +61,7 @@
     <div class="footer-content">
         <div class="footer-links">
             <a href="/contact" class="footer-link">Contacto</a>
-            <a href="/politica-privacidad" class="footer-link">Política de Privacidad</a>
+            <a href="/privacy-policy" class="footer-link">Política de Privacidad</a>
             <a href="/terminos-servicio" class="footer-link">Términos de Servicio</a>
             <a href="/blog" class="footer-link">Blog</a>
         </div>
