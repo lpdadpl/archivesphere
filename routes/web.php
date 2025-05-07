@@ -8,8 +8,8 @@ Route::get('/', function () {
 })->name('home');
 
 // Ruta para la página de login
-Route::get('/layouts/login', function () {
-    return view('login');
+Route::get('/login', function () {
+    return view('layouts.login');
 })->name('login');
 
 // Ruta para la biblioteca
