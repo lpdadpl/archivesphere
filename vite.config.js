@@ -1,35 +1,13 @@
 import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
-import path from 'path';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/js/src/app.js'],
+            input: ['resources/css/app.css', 'resources/js/app.js'],
             refresh: true,
-            buildDirectory: 'build'
         }),
-        vue({
-            template: {
-                transformAssetUrls: {
-                    base: null,
-                    includeAbsolute: false,
-                }
-            }
-        }),
+        tailwindcss(),
     ],
-    resolve: {
-        alias: {
-            '@': path.resolve(__dirname, './resources/js/src'),
-            '~': path.resolve(__dirname, './resources/js/src/assets')
-        },
-    },
-    build: {
-        outDir: 'public/build',
-        manifest: 'manifest.json',
-        rollupOptions: {
-            input: 'resources/js/src/app.js'
-        }
-    }
 });

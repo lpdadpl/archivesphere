@@ -17,7 +17,10 @@
     "license": "ISC",
     "devDependencies": {
         "@vitejs/plugin-vue": "^5.2.3",
+        "autoprefixer": "^10.4.21",
         "laravel-vite-plugin": "^1.2.0",
+        "postcss": "^8.5.3",
+        "tailwindcss": "^4.1.5",
         "vite": "^5.0.0",
         "vue": "^3.5.13",
         "vue-loader": "^17.4.2"
