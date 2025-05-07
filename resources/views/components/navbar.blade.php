@@ -57,6 +57,50 @@
         height: 15vh;
         /* Para evitar que el contenido se oculte debajo de la navbar */
     }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        .navbar {
+            height: auto;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1rem;
+        }
+
+        .navbar-menu {
+            display: none;
+            /* Ocultar el menú por defecto */
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .navbar-menu.active {
+            display: flex;
+            /* Mostrar el menú cuando esté activo */
+        }
+
+        .nav-item {
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .navbar-end {
+            margin-top: 1rem;
+        }
+
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
 </style>
 
 <nav class="navbar">
@@ -64,6 +108,7 @@
         <a href="/" class="navbar-logo">
             <img src="{{ asset('assets/LogoArchiveSphere.png') }}" alt="Logo">
         </a>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </div>
 
     <div class="navbar-menu">
@@ -81,3 +126,10 @@
 </nav>
 
 <div class="navbar-spacer"></div>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.navbar-menu');
+        menu.classList.toggle('active');
+    }
+</script>
