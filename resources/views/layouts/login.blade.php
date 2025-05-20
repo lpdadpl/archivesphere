@@ -104,7 +104,7 @@
     <div class="login-container">
         <div class="login-box">
             <h1 class="login-title">Iniciar Sesión</h1>
-            <form method="POST" action="{{ route('login.process') }}">
+            <form method="POST" action="{{ route('login.process') }}" id="loginForm">
                 @csrf
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>
@@ -121,4 +121,34 @@
     </div>
 
     @include('components.footer')
+
+    @toastifyJs
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    toastify().success('Te has logueado con exito');
+                    setTimeout(() => {
+                        window.location.href = data.redirect || '/';
+                    }, 1000);
+                } else {
+                    toastify().error(data.message || 'Error al iniciar sesión');
+                }
+            })
+            .catch(error => {
+                toastify().error('Error al iniciar sesión');
+            });
+        });
+    </script>
 @endsection

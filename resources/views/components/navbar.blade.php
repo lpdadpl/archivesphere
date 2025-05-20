@@ -143,9 +143,15 @@
     </div>
 
     <div class="navbar-end">
-        <a href="/login">
-            <img src="{{ asset('assets/profileicon.png') }}" alt="Perfil" class="profile-icon">
-        </a>
+        @if(Auth::check())
+            <a href="{{ Auth::user()->role->name === 'admin' ? route('admin.dashboard') : route('user.dashboard') }}" class="profile-link">
+                <img src="{{ asset('assets/profileicon.png') }}" alt="Perfil" class="profile-icon">
+            </a>
+        @else
+            <a href="/login">
+                <img src="{{ asset('assets/profileicon.png') }}" alt="Perfil" class="profile-icon">
+            </a>
+        @endif
     </div>
 </nav>
 
@@ -156,4 +162,24 @@
         const menu = document.querySelector('.navbar-menu');
         menu.classList.toggle('active');
     }
+
+    // Verificar el estado de la sesión al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/check-session', {
+            method: 'GET',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.isLoggedIn) {
+                const profileLink = document.querySelector('.profile-link');
+                if (profileLink) {
+                    profileLink.href = data.role === 'admin' ? '/admin/dashboard' : '/user/dashboard';
+                }
+            }
+        })
+        .catch(error => console.error('Error checking session:', error));
+    });
 </script>

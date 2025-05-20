@@ -16,6 +16,9 @@ Route::get('/login', function () {
 // Ruta para manejar el proceso de login
 Route::post('/login-process', [LoginProcessController::class, 'handleLogin'])->name('login.process');
 
+// Ruta para verificar el estado de la sesión
+Route::get('/check-session', [LoginProcessController::class, 'checkSession'])->name('check.session');
+
 // Rutas protegidas por el middleware 'auth'
 Route::middleware(['auth'])->group(function () {
     Route::get('/documents', function () {
@@ -33,6 +36,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/library', function () {
         return view('layouts/library');
     })->name('library');
+
+    // Ruta para el panel de usuario (protegida por middleware de auth)
+    Route::get('/user/dashboard', function () {
+        return view('layouts.UserDashboard');
+    })->name('user.dashboard');
 });
 
 // Ruta para mostrar un archivo específico
