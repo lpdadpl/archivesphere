@@ -2,7 +2,7 @@
 
 ---
 
-Para instalar la app hay que tener requisitos previos instalados en tu computadora.
+Para instalar la app hay que tener rv equisitos previos instalados en tu computadora.
 
 #### Si no usas linux
 
