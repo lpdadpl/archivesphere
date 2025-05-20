@@ -15,9 +15,7 @@
         z-index: 1000;
     }
 
-    .navbar-brand,
-    .navbar-menu,
-    .navbar-end {
+    .navbar-brand {
         display: flex;
         align-items: center;
     }
@@ -62,47 +60,66 @@
         display: none; /* Oculto por defecto en pantallas grandes */
         align-items: center;
         justify-content: center;
-        background-color: #0056b3;
+        background-color: transparent;
         color: white;
         border: none;
         font-size: 1.5rem;
         cursor: pointer;
+        padding: 0.5rem;
     }
 
     /* Estilos responsivos */
     @media (max-width: 768px) {
         .navbar {
             height: auto;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 1rem;
+            min-height: 60px;
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand {
+            flex: 0;
+        }
+
+        .navbar-logo img {
+            max-height: 40px;
         }
 
         .menu-toggle {
-            display: flex; /* Mostrar el botón solo en pantallas pequeñas */
+            display: flex;
+            order: 2;
+        }
+
+        .navbar-end {
+            order: 1;
+            margin-right: 1rem;
         }
 
         .navbar-menu {
             display: none;
-            /* Ocultar el menú por defecto */
-            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
             width: 100%;
+            background-color: #0056b3;
+            flex-direction: column;
+            padding: 1rem;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 0;
         }
 
         .navbar-menu.active {
             display: flex;
-            /* Mostrar el menú cuando esté activo */
         }
 
         .nav-item {
             font-size: 1rem;
             text-align: left;
+            padding: 0.5rem 0;
         }
 
-        .navbar-end {
-            margin-top: 1rem;
+        .profile-icon {
+            height: 35px;
+            width: 35px;
         }
     }
 </style>

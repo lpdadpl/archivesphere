@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginProcessController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FileController;
+use App\Http\Controllers\UserController;
 
 // Ruta para la página de inicio
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -37,10 +38,23 @@ Route::middleware(['auth'])->group(function () {
         return view('layouts/library');
     })->name('library');
 
-    // Ruta para el panel de usuario (protegida por middleware de auth)
+    // Rutas del dashboard de usuario
     Route::get('/user/dashboard', function () {
         return view('layouts.UserDashboard');
     })->name('user.dashboard');
+
+    Route::get('/user/profile', function () {
+        return view('layouts.UserDashboard');
+    })->name('user.profile');
+
+    Route::post('/user/profile/update', [UserController::class, 'updateProfile'])->name('user.profile.update');
+
+    Route::get('/user/files', [FileController::class, 'userFiles'])->name('user.files');
+    Route::get('/user/upload', function () {
+        return view('layouts.UserDashboard');
+    })->name('user.upload');
+    Route::post('/user/upload', [FileController::class, 'store'])->name('user.upload.store');
+    Route::delete('/files/{id}', [FileController::class, 'destroy'])->name('files.destroy');
 });
 
 // Ruta para mostrar un archivo específico
