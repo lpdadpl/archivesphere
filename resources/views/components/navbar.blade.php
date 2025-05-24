@@ -127,7 +127,7 @@
 <nav class="navbar">
     <div class="navbar-brand">
         <a href="/" class="navbar-logo">
-            <img src="{{ asset('assets/LogoArchiveSphere.png') }}" alt="Logo">
+            <img src="{{ asset('assets//LogoArchiveSphereWhite.png') }}" alt="Logo">
         </a>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </div>
