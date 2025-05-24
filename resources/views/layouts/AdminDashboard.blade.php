@@ -1,5 +1,5 @@
 <!-- filepath: /usr/proyectos/ArchiveSphereLaravel/archivesphere/resources/views/layouts/admin_dashboard.blade.php -->
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
     @include('components.navbar')

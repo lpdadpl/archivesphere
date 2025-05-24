@@ -1,7 +1,7 @@
 <!-- filepath: /usr/proyectos/ArchiveSphereLaravel/archivesphere/resources/views/layouts/privacy_policy.blade.php -->
-@extends('layouts.app')
-@include('components.navbar')
+@extends('app')
 @section('content')
+@include('components.navbar')
 <html>
 <head>
     <meta charset="UTF-8">
@@ -16,23 +16,23 @@
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .container {
             width: 100%;
         }
-        
+
         h1 {
             color: #0056b3;
             margin-bottom: 20px;
         }
-        
+
         .accordion {
             margin-bottom: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
             overflow: hidden;
         }
-        
+
         .accordion-header {
             background-color: #f5f5f5;
             padding: 15px;
@@ -43,40 +43,40 @@
             font-weight: bold;
             transition: background-color 0.3s ease;
         }
-        
+
         .accordion-header:hover {
             background-color: #e9e9e9;
         }
-        
+
         .accordion-header .icon {
             transition: transform 0.3s ease;
         }
-        
+
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
             padding: 0 15px;
         }
-        
+
         .accordion-content.active {
             max-height: 1000px;
             padding: 15px;
         }
-        
+
         .accordion-header.active .icon {
             transform: rotate(180deg);
         }
-        
+
         ul {
             padding-left: 20px;
         }
-        
+
         a {
             color: #3498db;
             text-decoration: none;
         }
-        
+
         a:hover {
             text-decoration: underline;
         }
@@ -86,9 +86,9 @@
     <div class="container">
         <h1>Política de Privacidad</h1>
         <p>Última actualización: <span id="currentDate"></span></p>
-        
+
         <p>En ArchiveSphere, valoramos tu privacidad y nos comprometemos a proteger la información personal que compartes con nosotros. Esta política de privacidad describe cómo recopilamos, usamos y protegemos tu información.</p>
-        
+
         <div class="accordion">
             <div class="accordion-header">
                 1. Información que recopilamos
@@ -103,7 +103,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="accordion">
             <div class="accordion-header">
                 2. Cómo usamos tu información
@@ -119,7 +119,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="accordion">
             <div class="accordion-header">
                 3. Compartir tu información
@@ -134,7 +134,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="accordion">
             <div class="accordion-header">
                 4. Seguridad de tu información
@@ -144,7 +144,7 @@
                 <p>Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra el acceso no autorizado, pérdida o destrucción.</p>
             </div>
         </div>
-        
+
         <div class="accordion">
             <div class="accordion-header">
                 5. Tus derechos
@@ -154,7 +154,7 @@
                 <p>Tienes derecho a acceder, corregir o eliminar tu información personal. Si deseas ejercer estos derechos, contáctanos a través de nuestro formulario de contacto.</p>
             </div>
         </div>
-        
+
         <div class="accordion">
             <div class="accordion-header">
                 6. Cambios en esta política
@@ -164,7 +164,7 @@
                 <p>Podemos actualizar esta política de privacidad ocasionalmente. Te notificaremos sobre cualquier cambio publicando la nueva política en esta página.</p>
             </div>
         </div>
-        
+
         <div class="accordion">
             <div class="accordion-header">
                 7. Contacto
@@ -175,7 +175,7 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         // Obtener la fecha actual en formato dd/mm/yyyy
         const today = new Date();
@@ -183,19 +183,19 @@
         const month = String(today.getMonth() + 1).padStart(2, '0');
         const year = today.getFullYear();
         document.getElementById('currentDate').textContent = `${day}/${month}/${year}`;
-        
+
         // Funcionalidad del acordeón
         const accordionHeaders = document.querySelectorAll('.accordion-header');
-        
+
         accordionHeaders.forEach(header => {
             header.addEventListener('click', () => {
                 // Toggle active class on the clicked header
                 header.classList.toggle('active');
-                
+
                 // Toggle active class on the content
                 const content = header.nextElementSibling;
                 content.classList.toggle('active');
-                
+
                 // Close other accordion items
                 accordionHeaders.forEach(otherHeader => {
                     if (otherHeader !== header) {
@@ -205,11 +205,11 @@
                 });
             });
         });
-        
+
         // Reemplazar el enlace de contacto con el adecuado para Laravel
         document.getElementById('contactLink').href = "/contact";
     </script>
 </body>
 </html>
-@endsection
 @include('components.footer')
+@endsection

@@ -1,5 +1,5 @@
 <!-- filepath: /resources/views/home.blade.php -->
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
     @include('components.navbar')

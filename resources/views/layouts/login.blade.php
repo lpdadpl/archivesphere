@@ -1,5 +1,5 @@
 <!-- filepath: /resources/views/login.blade.php -->
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
     @include('components.navbar')

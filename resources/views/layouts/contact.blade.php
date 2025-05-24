@@ -1,5 +1,5 @@
 <!-- filepath: /usr/proyectos/ArchiveSphereLaravel/archivesphere/resources/views/layouts/contact.blade.php -->
-@extends('layouts.app')
+@extends('app')
 
 @section('title', 'Contacto')
 
