@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    @include('components.navbar')
+    @include('components.Header')
 
     <div class="content-container" style="min-height: calc(100vh - 100px); padding: 16px; display: flex; flex-direction: column;">
         <div class="main-content" style="max-width: 800px; margin: 0 auto; flex: 1;">
@@ -51,5 +51,5 @@ Like<br>
         </div>
     </div>
 
-    @include('components.footer')
+    @include('components.Footer')
 @endsection

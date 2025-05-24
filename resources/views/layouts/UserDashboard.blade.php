@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    @include('components.navbar')
+    @include('components.Header')
     @include('components.LeftNavbar')
 
     <div class="content-wrapper">

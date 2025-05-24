@@ -2,7 +2,7 @@
 @extends('app')
 
 @section('content')
-    @include('components.navbar')
+    @include('components.Header')
 
     <style>
         body {
@@ -10,7 +10,6 @@
             background-color: #f3f4f6;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Evita el scroll en la página */
         }
 
         .login-container {
@@ -28,10 +27,6 @@
             padding: 2rem;
             width: 100%;
             max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Centra el contenido verticalmente */
-            align-items: center; /* Centra el contenido horizontalmente */
         }
 
         .login-title {
@@ -44,7 +39,7 @@
 
         .form-group {
             margin-bottom: 1rem;
-            width: 100%; /* Asegura que los campos ocupen todo el ancho del cuadro */
+            width: 100%;
         }
 
         .form-label {
@@ -66,14 +61,14 @@
 
         .form-input:focus {
             outline: none;
-            border-color: #6a1b9a;
-            box-shadow: 0 0 4px rgba(106, 27, 154, 0.5);
+            border-color: #0056b3;
+            box-shadow: 0 0 4px rgba(0, 86, 179, 0.5);
         }
 
         .login-button {
             width: 100%;
             padding: 0.8rem;
-            background-color: #6a1b9a;
+            background-color: #0056b3;
             color: #ffffff;
             font-size: 1rem;
             font-weight: bold;
@@ -84,7 +79,12 @@
         }
 
         .login-button:hover {
-            background-color: #4a148c;
+            background-color: rgb(0, 66, 136);
+        }
+
+        .login-button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
         }
 
         .register-link {
@@ -92,7 +92,7 @@
             text-align: center;
             margin-top: 1rem;
             font-size: 0.9rem;
-            color: #6a1b9a;
+            color: #0056b3;
             text-decoration: none;
         }
 
@@ -114,41 +114,45 @@
                     <label for="password" class="form-label">Contraseña</label>
                     <input type="password" id="password" name="password" class="form-input" required>
                 </div>
-                <button type="submit" class="login-button">Iniciar Sesión</button>
+                <button type="submit" class="login-button" id="loginButton">Iniciar Sesión</button>
             </form>
             <a href="/register" class="register-link">¿No tienes una cuenta? Regístrate aquí</a>
         </div>
     </div>
 
-    @include('components.footer')
-
     @toastifyJs
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const formData = new FormData(this);
+
+            const loginButton = document.getElementById('loginButton');
+            loginButton.disabled = true;
+            loginButton.textContent = 'Iniciando sesión...';
 
             fetch(this.action, {
                 method: 'POST',
-                body: formData,
+                body: new FormData(this),
                 headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Accept': 'application/json'
                 }
             })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    toastify().success('Te has logueado con exito');
-                    setTimeout(() => {
-                        window.location.href = data.redirect || '/';
-                    }, 1000);
+                    window.location.href = data.redirect;
                 } else {
-                    toastify().error(data.message || 'Error al iniciar sesión');
+                    toastify().error(data.message);
+                    loginButton.disabled = false;
+                    loginButton.textContent = 'Iniciar Sesión';
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 toastify().error('Error al iniciar sesión');
+                loginButton.disabled = false;
+                loginButton.textContent = 'Iniciar Sesión';
             });
         });
     </script>
+@include('components.Footer')
 @endsection

@@ -2,7 +2,7 @@
 @extends('app')
 
 @section('content')
-    @include('components.navbar')
+    @include('components.Header')
 
     <div class="admin-dashboard" style="padding: 2rem; margin-top: 2rem;">
         <h1 style="color: #0056b3; text-align: center; margin-bottom: 2rem;">Bienvenido al Panel de Administración</h1>
@@ -12,5 +12,5 @@
         </div>
     </div>
 
-    @include('components.footer')
+    @include('components.Footer')
 @endsection

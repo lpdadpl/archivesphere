@@ -2,7 +2,7 @@
 @extends('app')
 
 @section('content')
-    @include('components.navbar')
+    @include('components.Header')
 
     <div class="home-content">
         <div class="card-container">
@@ -12,5 +12,5 @@
         </div>
     </div>
 
-    @include('components.footer')
+    @include('components.Footer')
 @endsection

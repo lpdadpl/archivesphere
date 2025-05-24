@@ -11,7 +11,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Ruta para la página de login
 Route::get('/login', function () {
-    return view('layouts.login');
+    return view('layouts.Login');
 })->name('login');
 
 // Ruta para manejar el proceso de login
@@ -62,7 +62,7 @@ Route::get('/file/{id}', [FileController::class, 'show'])->name('file.show');
 
 // Ruta para la página de contacto
 Route::get('/contact', function () {
-    return view('layouts.contact');
+    return view('layouts.Contact');
 })->name('contact');
 
 // Ruta para manejar el envío del formulario de contacto
@@ -81,9 +81,9 @@ Route::get('/privacy-policy', function () {
 })->name('privacy.policy');
 
 Route::get('/terminos-servicio', function () {
-    return view('layouts.terms_of_service');
+    return view('layouts.Terms_of_service');
 })->name('terms.service');
 
 Route::get('/blog', function () {
-    return view('layouts.blog');
+    return view('layouts.Blog');
 })->name('blog');

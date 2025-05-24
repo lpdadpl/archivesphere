@@ -4,7 +4,7 @@
 @section('title', 'Contacto')
 
 @section('content')
-    @include('components.navbar')
+    @include('components.Header')
 
     <div class="contact-container" style="padding: 2rem;">
         <h1 style="text-align: center; color: #0056b3;">Contáctanos</h1>
@@ -35,5 +35,5 @@
         </form>
     </div>
 
-    @include('components.footer')
+    @include('components.Footer')
 @endsection

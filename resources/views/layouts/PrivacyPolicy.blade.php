@@ -1,7 +1,7 @@
 <!-- filepath: /usr/proyectos/ArchiveSphereLaravel/archivesphere/resources/views/layouts/privacy_policy.blade.php -->
 @extends('app')
 @section('content')
-@include('components.navbar')
+@include('components.Header')
 <html>
 <head>
     <meta charset="UTF-8">
@@ -211,5 +211,5 @@
     </script>
 </body>
 </html>
-@include('components.footer')
+@include('components.Footer')
 @endsection

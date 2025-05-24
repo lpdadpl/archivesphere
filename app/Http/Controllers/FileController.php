@@ -13,6 +13,6 @@ class FileController extends Controller
         $file = File::findOrFail($id);
 
         // Pasar el archivo a la vista
-        return view('layouts.file', compact('file'));
+        return view('layouts.File', compact('file'));
     }
 }
