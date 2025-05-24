@@ -89,5 +89,5 @@
         </div>
     </div>
 
-    @include('components.footer')
 @endsection
+    @include('components.footer')
