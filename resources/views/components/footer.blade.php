@@ -68,7 +68,7 @@
             <a href="/blog" class="footer-link">Blog</a>
         </div>
         <div class="footer-logo">
-            <img src="{{ asset('assets/LogoArchiveSphere.png') }}" alt="Logo">
+            <img src="{{ asset('assets//LogoArchiveSphereWhite.png') }}" alt="Logo">
         </div>
     </div>
     <div class="footer-bottom">
