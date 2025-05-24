@@ -4,7 +4,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 15vh;
+        height: 80px;
         background-color: #0056b3;
         /* Azul fuerte */
         display: flex;
@@ -52,8 +52,8 @@
     }
 
     .navbar-spacer {
-        height: 15vh;
-        /* Para evitar que el contenido se oculte debajo de la navbar */
+        height: 80px; /* Ajustado para coincidir con la altura de la navbar */
+        width: 100%;
     }
 
     .menu-toggle {

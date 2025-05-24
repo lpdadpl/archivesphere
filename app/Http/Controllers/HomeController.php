@@ -13,6 +13,6 @@ class HomeController extends Controller
         $files = File::all();
 
         // Pasar los datos a la vista
-        return view('layouts.home', compact('files'));
+        return view('layouts.Home', compact('files'));
     }
 }

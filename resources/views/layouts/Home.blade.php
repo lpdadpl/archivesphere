@@ -1,8 +1,9 @@
 <!-- filepath: /resources/views/home.blade.php -->
 @extends('app')
 
+@include('components.Header')
+
 @section('content')
-    @include('components.navbar')
 
     <style>
         /* Estilos para el contenedor de las tarjetas */
@@ -78,7 +79,7 @@
     <div class="home-content">
         <div class="card-container">
             @foreach ($files as $file)
-                @include('components.card', [
+                @include('components.Card', [
                     'id' => $file->id, // Pasar el ID del archivo
                     'image' => $file->img_url,
                     'title' => $file->name,
@@ -89,5 +90,5 @@
         </div>
     </div>
 
+    @include('components.Footer')
 @endsection
-    @include('components.footer')

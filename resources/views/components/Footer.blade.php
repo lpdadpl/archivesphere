@@ -1,10 +1,7 @@
 {{-- filepath: /usr/proyectos/ArchiveSphereLaravel/archivesphere/resources/views/components/footer.blade.php --}}
 <style>
     .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
+        width: 100vw;
         background-color: #0056b3; /* Azul fuerte */
         color: white;
         padding: 1.5rem 2rem;
@@ -14,7 +11,26 @@
         align-items: center;
         justify-content: center;
         gap: 1rem;
-        z-index: 1000;
+        margin-top: 2rem;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        margin-bottom: 0;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content-container {
+        flex: 1;
+        width: 100%;
     }
 
     .footer-content {
@@ -23,7 +39,8 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        max-width: 1200px;
+        max-width: 100%;
+        padding: 0 2rem;
     }
 
     .footer-links {
